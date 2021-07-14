@@ -36,3 +36,25 @@
     transform: rotate(360deg);
   }
 }
+
+.counterBtn {
+  border: 2px solid;
+  background-color: white;
+  margin: 3px;
+  transition: 0.4s;
+}
+
+.counterBtn:hover {
+  cursor: pointer;
+}
+
+.inputDiv {
+  display: inline;
+  margin: 5px;
+}
+
+.counterDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
