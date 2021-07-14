@@ -44,13 +44,16 @@ class App extends React.Component {
   };
 
   resetValue = () => {
-    localStorage.setItem("countVal", 0);
-    localStorage.setItem("maxValue", Infinity);
-    localStorage.setItem("minValue", 0);
-    localStorage.setItem("step", 1);
+    // localStorage.setItem("countVal", 0);
+    // localStorage.setItem("maxValue", Infinity);
+    // localStorage.setItem("minValue", 0);
+    // localStorage.setItem("step", 1);
+    localStorage.clear();
     this.setState({
       countVal: 0,
       maxValue: Infinity,
+      minValue: 0,
+      step: 1,
     });
   };
 
