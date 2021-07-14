@@ -11,9 +11,13 @@ class App extends React.Component {
       countVal: localStorage.getItem("countVal")
         ? Number(localStorage.countVal)
         : 0,
-      maxValue: Infinity,
-      minValue: 0,
-      step: 1,
+      maxValue: localStorage.getItem("maxValue")
+        ? Number(localStorage.maxValue)
+        : Infinity,
+      minValue: localStorage.getItem("minValue")
+        ? Number(localStorage.minValue)
+        : 0,
+      step: localStorage.getItem("step") ? Number(localStorage.step) : 1,
     };
   }
 
@@ -41,24 +45,31 @@ class App extends React.Component {
 
   resetValue = () => {
     localStorage.setItem("countVal", 0);
+    localStorage.setItem("maxValue", Infinity);
+    localStorage.setItem("minValue", 0);
+    localStorage.setItem("step", 1);
     this.setState({
       countVal: 0,
+      maxValue: Infinity,
     });
   };
 
   handleMaxInputValue = (e) => {
+    localStorage.setItem("maxValue", e.target.value);
     this.setState({
       maxValue: Number(e.target.value),
     });
   };
 
   handleMinInputValue = (e) => {
+    localStorage.setItem("minValue", e.target.value);
     this.setState({
       minValue: Number(e.target.value),
     });
   };
 
   handleStepValue = (e) => {
+    localStorage.setItem("step", e.target.value);
     this.setState({
       step: Number(e.target.value),
     });
@@ -71,12 +82,18 @@ class App extends React.Component {
           <CounterInput
             inputHandler={this.handleMinInputValue}
             name="minValue"
+            inputValue={localStorage.getItem("minValue")}
           />
           <CounterInput
             inputHandler={this.handleMaxInputValue}
             name="maxValue"
+            inputValue={localStorage.getItem("maxValue")}
           />
-          <CounterInput inputHandler={this.handleStepValue} name="step" />
+          <CounterInput
+            inputHandler={this.handleStepValue}
+            name="step"
+            inputValue={localStorage.getItem("step")}
+          />
         </div>
         <h1>{this.state.countVal}</h1>
         <div>

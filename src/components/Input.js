@@ -1,8 +1,8 @@
-export default function CounterInput({ name, inputHandler }) {
+export default function CounterInput({ name, inputHandler, inputValue }) {
   return (
     <div className="inputDiv">
       <label htmlFor="step">{name}</label>
-      <input onChange={(e) => inputHandler(e)} name={name} />
+      <input value={inputValue} onChange={(e) => inputHandler(e)} name={name} />
     </div>
   );
 }
